@@ -1,16 +1,23 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"fmt"
+	"net/http"
+
+	"cssd-admin/pkg/setting"
+	"cssd-admin/routers"
 )
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	router := routers.InitRouter()
 
-	r.Run()
+	s := &http.Server{
+		Addr:           fmt.Sprintf(":%d", setting.HTTPPort),
+		Handler:        router,
+		ReadTimeout:    setting.ReadTimeout,
+		WriteTimeout:   setting.WriteTimeout,
+		MaxHeaderBytes: 1 << 20,
+	}
+
+	s.ListenAndServe()
 }
