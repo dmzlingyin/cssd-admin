@@ -25,9 +25,13 @@ TablePrefix = cssd_
 
 #### Run
 
-```
+```go
 cd $GOPATH/src/cssd-admin
 go run main.go
+
+// Or if you want reload it hotly just make sure that air you have installed and in you PATH
+// At you root directory:
+air
 ```
 
 #### Features
