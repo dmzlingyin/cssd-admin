@@ -27,6 +27,7 @@ TablePrefix = cssd_
 
 ```
 cd $GOPATH/src/cssd-admin
+go mod download
 go run main.go
 ```
 
