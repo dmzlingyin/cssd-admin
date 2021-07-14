@@ -8,10 +8,10 @@
 package api
 
 import (
-	"log"
 	"net/http"
 
 	"cssd-admin/pkg/e"
+	"cssd-admin/pkg/logging"
 	"cssd-admin/pkg/util"
 
 	"github.com/astaxie/beego/validation"
@@ -43,7 +43,7 @@ func GetAuth(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 

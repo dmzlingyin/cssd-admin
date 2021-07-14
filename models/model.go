@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"log"
 
+	"cssd-admin/pkg/logging"
 	"cssd-admin/pkg/setting"
 
 	"gorm.io/driver/mysql"
@@ -35,6 +36,6 @@ func Init() {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local", user, password, host, dbName)
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Printf("Fail to open mysql server :\n%v", err)
+		logging.Info("Fail to open mysql server :\n%v", err)
 	}
 }

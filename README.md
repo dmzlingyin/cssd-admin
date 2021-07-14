@@ -39,3 +39,15 @@ ______
 * logging
 * Gin
 * App configurable
+
+
+
+## Next
+
+- [x] JWT Aothentication
+
+- [x] Logging
+- [ ] User table design
+- [ ] Login api completion 
+
+  
